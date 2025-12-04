@@ -1,8 +1,7 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
+// src/environments/environment.prod.ts
 
 export const environment = {
-  production: false,
-  url_api: "http://127.0.0.1:8000"
+  production: true,
+  // ¡CRUCIAL! Usa la URL pública de tu Backend en Render
+  url_api: "https://control-escolar-back-dhku.onrender.com" 
 };
