@@ -1,0 +1,135 @@
+<div class="wrapper main-content-maestros">
+  <div class="header-home-maestros">
+  </div>
+  <div class="body-maestros">
+    <!-- Encabezado -->
+    <div class="row mt-5 mb-5">
+      <div class="col-12">
+        <span class="title-perfil">Bienvenido {{name_user}}</span>
+        <br>
+        <span class="title-perfil">{{rol}}</span>
+      </div>
+    </div>
+    
+    <!-- Contenedor principal -->
+    <div class="container">
+      <div class="row mt-3 mb-5" style="text-align: center;">
+        <div class="col-12">
+          <div class="alert alert-primary" role="alert">
+            <span class="title-table">Lista de materias registradas</span>
+          </div>
+        </div>
+
+        <!-- Buscador  -->
+        <div class="search-container">
+        <mat-form-field appearance="outline">
+            <mat-label>Buscar por nombre, NRC o profesor</mat-label>
+            <input matInput (keyup)="applyFilter($event)" #input 
+                placeholder="">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+        </div>
+
+        <ng-container *ngIf="dataSource.data.length > 0; else noData">
+          <div class="table-scroll-wrapper">
+            <div class="mat-elevation-z8">
+              <table mat-table [dataSource]="dataSource" matSort>
+                <!-- Columna NRC -->
+                <ng-container matColumnDef="nrc">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> NRC </th>
+                  <td mat-cell *matCellDef="let element"> {{element.nrc}} </td>
+                </ng-container>
+
+                <!-- Columna Nombre -->
+                <ng-container matColumnDef="nombre">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                  <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+                </ng-container>
+
+                <!-- Columna Sección -->
+                <ng-container matColumnDef="seccion">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Sección </th>
+                  <td mat-cell *matCellDef="let element"> {{element.seccion}} </td>
+                </ng-container>
+
+                <!-- Columna Programa -->
+                <ng-container matColumnDef="programa">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Programa </th>
+                  <td mat-cell *matCellDef="let element"> {{element.programa}} </td>
+                </ng-container>
+
+                <!-- Columna Profesor -->
+                <ng-container matColumnDef="profesor">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </th>
+                  <td mat-cell *matCellDef="let element"> {{element.nombre_profesor}} </td>
+                </ng-container>
+
+                <!-- Columna Créditos -->
+                <ng-container matColumnDef="creditos">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Créditos </th>
+                  <td mat-cell *matCellDef="let element"> {{element.creditos}} </td>
+                </ng-container>
+
+                <!-- Columna Horario -->
+                <ng-container matColumnDef="horario">
+                  <th mat-header-cell *matHeaderCellDef> Horario </th>
+                  <td mat-cell *matCellDef="let element">
+                    <div>{{element.horario_completo}}</div>
+                    <small class="text-muted">{{element.dias_string}}</small>
+                  </td>
+                </ng-container>
+
+                <!-- Columna Editar (SOLO ADMIN) -->
+                <ng-container matColumnDef="editar" *ngIf="shouldShowButtons()">
+                  <th mat-header-cell *matHeaderCellDef> Editar </th>
+                  <td mat-cell *matCellDef="let element" class="td-editar">
+                    <i class="bi bi-pencil-square" 
+                       (click)="goEditar(element.id)"
+                       style="cursor: pointer;"></i>
+                  </td>
+                </ng-container>
+
+                <!-- Columna Eliminar (SOLO ADMIN) -->
+                <ng-container matColumnDef="eliminar" *ngIf="shouldShowButtons()">
+                  <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+                  <td mat-cell *matCellDef="let element" class="td-eliminar">
+                    <i class="bi bi-trash3-fill" 
+                       (click)="delete(element.id)"
+                       style="cursor: pointer; color: #E84150;"></i>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                <!-- Fila por si no encuentra la búsqueda -->
+                <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" [attr.colspan]="displayedColumns.length" 
+                      style="text-align: center; padding: 20px; font-size: 16px;">
+                    No se encontraron datos que coincidan con "{{input.value}}"
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- Paginación -->
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+              aria-label="Select page of periodic elements">
+            </mat-paginator>
+          </div>
+        </ng-container>
+
+        <!-- Mensaje por si no hay resultados -->
+        <ng-template #noData>
+          <div class="row">
+            <div class="col-12">
+              <div class="alert alert-warning" role="alert">
+                No hay materias registradas.
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

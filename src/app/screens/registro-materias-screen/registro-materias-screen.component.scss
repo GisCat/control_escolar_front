@@ -1,0 +1,341 @@
+.wrapper {
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('/assets/images/fondo-azul.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.reg-shell {
+  display: grid;
+  gap: 20px;
+  padding: clamp(16px, 3vw, 28px);
+}
+
+/* Tarjeta superior */
+.role-card {
+  width: min(100%, 980px);
+  margin-inline: auto;
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.role-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4px;
+  padding-bottom: 8px;
+}
+
+.actions-header-colum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2px;
+  width: 100%;
+}
+
+/* Botón regresar */
+.back-btn {
+  border-radius: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-btn button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: none;
+  font-weight: 500;
+  border-radius: 8px;
+  padding-inline: 14px;
+}
+
+.back-icon {
+  width: auto !important;
+  height: auto !important;
+  font-size: 1.9rem;
+  color: #0092B8;
+}
+
+.title-card {
+  width: 100%;
+  font-family: Nexa-Bold, Arial, sans-serif;
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  margin-bottom: 0.25rem;
+}
+
+.subtitle-card {
+  width: 100%;
+  font-family: Nexa-Light, Arial, sans-serif;
+  font-size: clamp(1rem, 0.8rem + 0.5vw, 1.25rem);
+  color: #000000;
+  margin-top: 1rem;
+}
+
+/* Área de formularios */
+.forms-area {
+  width: min(100%, 980px);
+  margin-inline: auto;
+}
+
+/* Cuerpo del formulario */
+.section-registro {
+  width: 100%;
+}
+
+.body-registro {
+  background-color: white;
+  border-radius: 12px;
+  padding: clamp(20px, 4vw, 40px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos dentro del formulario */
+.title-materias {
+  display: block;
+  width: 100%;
+  font-family: Nexa-Bold, Arial, sans-serif;
+  font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem);
+  color: #000000;
+  margin-bottom: 0.75rem;
+}
+
+/* Campos de formulario */
+.mat-input {
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+/* Sección de botones */
+.section-buttons {
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.5rem;
+}
+
+/* Botón primario */
+.btn-primary {
+  width: 208px;
+  height: 48px;
+  background-color: #0092B8 !important;
+  border-color: #0092B8 !important;
+  border-radius: 8px !important;
+  text-align: center;
+  font-family: Nexa-Bold;
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #017895 !important;
+  border-color: #017895 !important;
+}
+
+/* Botón de eliminación */
+.btn-danger {
+  width: 208px;
+  height: 48px;
+  border-radius: 8px !important;
+  text-align: center;
+  font-family: Nexa-Bold;
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  border: none;
+  cursor: pointer;
+}
+
+/* Grupo de checkboxes */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 25px;
+    justify-content: space-between;
+    margin: 0 2rem;
+}
+
+.checkbox-item {
+  flex: 0 0 auto;
+}
+
+/* Layout de columnas */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.mt-3 { margin-top: 1rem !important; }
+.mb-3 { margin-bottom: 1rem !important; }
+.mb-2 { margin-bottom: 0.5rem !important; }
+
+/* Mensajes de error */
+.invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: -0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #dc3545;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   Estilos para el mat-checkbox con MDC
+   ========================= */
+::ng-deep .mat-mdc-checkbox.mat-mdc-checkbox-checked .mdc-checkbox__background,
+::ng-deep .mat-mdc-checkbox.mat-mdc-checkbox-checked .mdc-checkbox__ripple {
+  background-color: #0092B8 !important;
+  border-color: #0092B8 !important;
+}
+
+::ng-deep .mat-mdc-checkbox:focus .mdc-checkbox__background {
+  border-color: #1565C0 !important;
+}
+
+::ng-deep .mat-mdc-checkbox .mdc-checkbox__ripple {
+  transform: scale(1.2);
+}
+
+::ng-deep .mat-mdc-checkbox .mdc-checkbox__checkmark {
+  transform: scale(1.3);
+  stroke-width: 3px;
+}
+
+::ng-deep .mat-mdc-checkbox:hover .mdc-checkbox__background {
+  background-color: rgba(0, 146, 184, 0.1);
+}
+
+.d-checkbox-nombre {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  color: #231F20;
+  font-weight: 500;
+}
+
+
+
+
+
+/*RELOJ*/
+.timepicker__header[_ngcontent-ng-c2461858124] {
+  background-color: var(--primary-color) !important;
+}
+
+
+/* =========================
+   Ajustes para el formulario en dispositivos móviles
+   ========================= */
+@media (max-width: 700px) {
+  .role-card {
+    padding: 15px;
+  }
+
+  .role-card-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .actions-header-colum {
+    align-items: center;
+  }
+
+  .title-card {
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle-card {
+    text-align: center;
+  }
+
+  .back-btn {
+    order: -1;
+    align-self: flex-start;
+  }
+
+  .body-registro {
+    padding: 25px 20px;
+  }
+
+  .title-materias {
+    text-align: center;
+  }
+
+  .checkbox-group {
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .section-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .btn-primary,
+  .btn-danger {
+    width: 100%;
+    max-width: 280px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .body-registro {
+    padding: 20px 15px;
+  }
+
+  .checkbox-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
